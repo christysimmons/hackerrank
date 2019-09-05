@@ -1,0 +1,41 @@
+//SOCK MERCHANT
+
+function sockMerchant(n, ar) {
+    let pairCount = 0;
+    let sortArr = ar.sort((a, b) => a - b );
+    while (sortArr.length > 0) {
+        let sockCount = sortArr.lastIndexOf(sortArr[0]);
+        if (sockCount > 1) {
+            pairCount += Math.ceil(sockCount/2)
+        } else {
+            pairCount += sockCount
+        }
+        sortArr.splice(0, sockCount+1);
+    }
+    return pairCount;
+}
+
+//COUNTING VALLEYS
+
+function countingValleys(n, s) {
+    let valleyCount = 0;
+    let pos = 0;
+    for (let c of s) {
+        if (c === 'U') { pos++ };
+        if (c === 'D') { pos-- };
+        if (pos == -0 && c == 'U') { valleyCount++ };
+    }
+    return valleyCount;
+}
+
+//JUMPING ON CLOUDS
+
+function jumpingOnClouds(c) {
+    let cloudCount = -1;
+    for (let i = 0; i < c.length; i++ , cloudCount++) {
+        if (i < c.length - 2 && c[i + 2] == 0) {
+            i++;
+        }
+    }
+    return cloudCount;
+}
