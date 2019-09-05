@@ -39,3 +39,23 @@ function jumpingOnClouds(c) {
     }
     return cloudCount;
 }
+
+//REPEATED STRING
+
+function repeatedString(s, n) {
+    //count vars for final math
+    let count = 0;
+    let partialCount = 0;
+    let remainder = n % s.length;
+
+    //actual letter counts
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] == 'a') {
+            count++;
+            if (i < remainder)
+                partialCount++;
+        };
+    }
+    //final math
+    return ((n - remainder) / s.length * count ) + partialCount;
+}
