@@ -1,0 +1,20 @@
+# Problem - s is an array representing pieces of chocolate with numbers imprinted on them
+# find a solution where the number imprinted on m pieces of chocolate add up to d
+# return how many soultions there are in a given array
+
+# Notes - this is ugly, but runs. Return to tighten up.
+
+def birthday(s, d, m):
+    cuts = 0
+    # handles for arrays with fewer entries than the month is long
+    if (len(s) < m):
+        return cuts
+    else:
+        i = 0
+        while (i < len(s)):
+            if (sum(s[i: i + m]) == d):
+                cuts +=1
+                i += 1
+            else: 
+                i += 1
+    return cuts
